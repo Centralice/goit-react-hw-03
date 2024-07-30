@@ -1,14 +1,14 @@
 import s from "./Contact.module.css";
 
-const Contact = () => {
+const Contact = ({contact}) => {
   return (
-    <div>
+    <li className={s.contactWrapper}>
       <div className={s.data}>
-        <p className={s.name}>Alice Margis</p>
-        <p className={s.phoneNumber}>9379992</p>
+        <p className={s.name}>{contact.name}</p>
+        <p className={s.phoneNumber}>{contact.number}</p>
       </div>
       <button>Delete</button>
-    </div>
+    </li>
   );
 };
 

@@ -1,10 +1,14 @@
+import Contact from "../Contact/Contact";
 import s from "./ContactList.module.css";
 
-const ContactList = () => {
+const ContactList = (props) => {
+
   return (
-    <div>
-      <p className={s.bg}>ContactList</p>
-    </div>
+    <ul>
+      {props.contacts.map((contact) => {
+        <Contact key={contact.id} contact={contact} />;
+      })}
+    </ul>
   );
 }
 
