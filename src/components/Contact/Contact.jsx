@@ -2,12 +2,12 @@ import s from "./Contact.module.css";
 
 const Contact = ({ contact }) => {
   return (
-    <li>
+    <li className={s.contactWrapper}>
       <div>
         <p>{contact.name}</p>
         <p>{contact.number}</p>
-        <button>Delete</button>
       </div>
+      <button>Delete</button>
     </li>
   );
 };
