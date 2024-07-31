@@ -8,11 +8,19 @@ const App = () => {
 
 const [contacts, setContacts] = useState(contactsData);
 
+const [inputValue, setInputValue] = useState("");
+
+const handleInput = (e) => {
+  setInputValue(e.target.value);
+};
+
+
+
   return (
     <div>
       <h1>Phonebook ☎️</h1>
       <ContactForm />
-      <SearchBox />
+      <SearchBox inputValue={inputValue} handleInput={handleInput} />
       <ContactList contacts={contacts} />
     </div>
   );
