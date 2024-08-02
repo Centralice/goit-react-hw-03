@@ -5,7 +5,7 @@ const ContactList = (props) => {
   return (
     <ul>
       {props.contacts.map((contact) => (
-        <Contact key={contact.id} contact={contact} />
+        <Contact onDelete={props.onDelete} key={contact.id} contact={contact} />
       ))}
     </ul>
   );

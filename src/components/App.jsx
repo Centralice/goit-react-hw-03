@@ -19,12 +19,18 @@ const App = () => {
     });
   };
 
+  const deleteContact = (contactID) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== contactID);
+    });
+  };
+
   return (
     <div>
       <h1>Phonebook ☎️</h1>
       <ContactForm onAdd={addContact} />
       <SearchBox value={searchQuery} onSearch={setSearchQuery} />
-      <ContactList contacts={visibleContacts} />
+      <ContactList contacts={visibleContacts} onDelete={deleteContact} />
     </div>
   );
 };
