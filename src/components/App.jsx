@@ -14,8 +14,10 @@ const App = () => {
   );
 
   const addContact = (newContact) => {
-    console.log(newContact);    
-  }
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
+  };
 
   return (
     <div>

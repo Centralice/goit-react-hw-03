@@ -2,6 +2,7 @@ import s from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
+import { nanoid } from 'nanoid'
 
 const ContactForm = ({onAdd}) => {
   const FeedbackSchema = Yup.object().shape({
@@ -23,9 +24,10 @@ const ContactForm = ({onAdd}) => {
 
   const NameInputId = useId();
   const NumberInputId = useId();
+  const contactId = nanoid()
 
   const handleSubmit = (values, actions) => {
-    console.log({name: values.name, number: values.numberб id: });
+    onAdd({ name: values.name, number: values.number, id: contactId });
     actions.resetForm();
   };
 
@@ -44,7 +46,7 @@ const ContactForm = ({onAdd}) => {
           <Field
             id={NumberInputId}
             className={s.input}
-            type="number"
+            type="text"
             name="number"
           />
           <ErrorMessage name="number" component="span" />
