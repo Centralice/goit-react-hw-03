@@ -2,10 +2,16 @@ import ContactForm from "./ContactForm/ContactForm";
 import ContactList from "./ContactList/ContactList";
 import SearchBox from "./SearchBox/SearchBox";
 import contactsData from "../contacts.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
-  const [contacts, setContacts] = useState(contactsData);
+  const [contacts, setContacts] = useState(() => {
+    const savedContacts = window.localStorage.getItem("saved-contacts");
+    if (window.localStorage.length) {
+      return JSON.parse(savedContacts);
+    }
+    return contactsData;
+  });
 
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -24,6 +30,10 @@ const App = () => {
       return prevContacts.filter((contact) => contact.id !== contactID);
     });
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("saved-contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <div>
