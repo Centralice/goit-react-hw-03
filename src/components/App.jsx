@@ -5,23 +5,18 @@ import contactsData from "../contacts.json";
 import { useState } from "react";
 
 const App = () => {
+  const [contacts, setContacts] = useState(contactsData);
 
-const [contacts, setContacts] = useState(contactsData);
+  const [searchQuery, setSearchQuery] = useState("");
 
-const [inputValue, setInputValue] = useState("");
-
-const handleInput = (e) => {
-  setInputValue(e.target.value);
-};
-
-
+  const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
     <div>
       <h1>Phonebook ☎️</h1>
       <ContactForm />
-      <SearchBox inputValue={inputValue} handleInput={handleInput} />
-      <ContactList contacts={contacts} />
+      <SearchBox value={searchQuery} onSearch={setSearchQuery} />
+      <ContactList contacts={visibleContacts} />
     </div>
   );
 };
