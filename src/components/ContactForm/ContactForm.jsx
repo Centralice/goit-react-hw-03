@@ -1,10 +1,15 @@
 import s from "./ContactForm.module.css";
+import { Formik, Form, Field } from "formik";
 
 const ContactForm = () => {
   return (
-    <div>
-      <p className={s.bg}>ContactForm</p>
-    </div>
+    <Formik initialValues={{}} onSubmit={() => {}}>
+      <Form>
+        <Field type="text" name="name"  />
+        <Field type="number" name="number"  />
+        <button type="submit">Submit</button>
+      </Form>
+    </Formik>
   );
 }
 
