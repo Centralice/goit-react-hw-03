@@ -9,12 +9,18 @@ const App = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const visibleContacts = contacts.filter(contact => contact.name.toLowerCase().includes(searchQuery.toLowerCase()));
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const addContact = (newContact) => {
+    console.log(newContact);    
+  }
 
   return (
     <div>
       <h1>Phonebook ☎️</h1>
-      <ContactForm />
+      <ContactForm onAdd={addContact} />
       <SearchBox value={searchQuery} onSearch={setSearchQuery} />
       <ContactList contacts={visibleContacts} />
     </div>

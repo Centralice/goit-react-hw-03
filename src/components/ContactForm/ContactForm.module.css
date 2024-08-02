@@ -1,0 +1,36 @@
+/* .wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+} */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  box-shadow: 0 0 15px 1px rgb(141, 121, 121);
+  width: 400px;
+}
+
+.input {
+  padding: 5px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 1px rgb(183, 183, 183);
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  & span {
+    font-weight: bold;
+  }
+}
+
+.btn {
+  font-size: 12px;
+  font-style: italic;
+  padding: 5px;
+}
