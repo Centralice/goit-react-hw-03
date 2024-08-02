@@ -2,9 +2,9 @@ import s from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import * as Yup from "yup";
-import { nanoid } from 'nanoid'
+import { nanoid } from "nanoid";
 
-const ContactForm = ({onAdd}) => {
+const ContactForm = ({ onAdd }) => {
   const FeedbackSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Cmon, u can do this")
@@ -24,7 +24,7 @@ const ContactForm = ({onAdd}) => {
 
   const NameInputId = useId();
   const NumberInputId = useId();
-  const contactId = nanoid()
+  const contactId = nanoid();
 
   const handleSubmit = (values, actions) => {
     onAdd({ name: values.name, number: values.number, id: contactId });
@@ -39,10 +39,14 @@ const ContactForm = ({onAdd}) => {
         validationSchema={FeedbackSchema}
       >
         <Form className={s.form}>
-          <label htmlFor={NameInputId}>Name</label>
+          <label className={s.label} htmlFor={NameInputId}>
+            Name
+          </label>
           <Field id={NameInputId} className={s.input} type="text" name="name" />
           <ErrorMessage name="name" component="span" />
-          <label htmlFor={NumberInputId}>Number</label>
+          <label className={s.label} htmlFor={NumberInputId}>
+            Number
+          </label>
           <Field
             id={NumberInputId}
             className={s.input}

@@ -3,7 +3,7 @@ import s from "./ContactList.module.css";
 
 const ContactList = (props) => {
   return (
-    <ul>
+    <ul className={s.wrapper}>
       {props.contacts.map((contact) => (
         <Contact onDelete={props.onDelete} key={contact.id} contact={contact} />
       ))}

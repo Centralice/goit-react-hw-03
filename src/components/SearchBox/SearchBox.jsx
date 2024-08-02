@@ -3,9 +3,10 @@ import s from "./SearchBox.module.css";
 const SearchBox = ({ value, onSearch }) => {
 
   return (
-    <div>
-      <label>Search by name 🔎</label>
+    <div className={s.wrapper}>
+      <label className={s.label}>Search by name 🔎</label>
       <input
+        className={s.input}
         type="text"
         name="input"
         value={value}
